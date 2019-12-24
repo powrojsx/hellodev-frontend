@@ -1,0 +1,29 @@
+@import './colors.scss';
+
+.Form {
+  &.Center {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.FormGroup {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Text {
+  border: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid $primary;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  margin-right: 1rem;
+
+  &::placeholder {
+    font-family: 'Roboto', sans-serif;
+    // text-transform: uppercase;
+    line-height: 1.4;
+    font-size: 0.85rem;
+  }
+}

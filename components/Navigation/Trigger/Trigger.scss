@@ -1,0 +1,46 @@
+@import '../../colors.scss';
+@import '../../mixins.scss';
+
+.Trigger {
+  width: 35px;
+  margin-left: auto;
+  cursor: pointer;
+  display: block;
+  background: none;
+  border: none;
+
+  div {
+    width: 100%;
+    background: $primary;
+    height: 2px;
+    border-radius: 3px;
+
+    &:not(:last-child) {
+      margin-bottom: 7px;
+    }
+  }
+
+  @include up-medium {
+    display: none;
+  }
+}
+
+.Close {
+  position: absolute;
+  top: 1.5rem;
+  right: 0.5rem;
+
+  div {
+    &:first-child {
+      transform: rotate(-45deg) translate(-11px, 2px);
+    }
+
+    &:nth-child(2) {
+      transform: rotate(45deg) translate(-4px, 4px);
+    }
+
+    &:last-child {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@import '../colors.scss';
+
+.Button {
+  background: none;
+  border: none;
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  transition: background 0.5s;
+  cursor: pointer;
+
+  &.Primary {
+    background: $primary;
+    color: $white;
+
+    &:hover {
+      background: $secondary;
+    }
+  }
+}

@@ -1,0 +1,69 @@
+@import '../colors.scss';
+@import '../mixins.scss';
+
+.Navigation {
+  width: 100%;
+  overflow-y: auto;
+}
+
+.Container {
+  width: 100%;
+  overflow-y: auto;
+}
+
+.List {
+  list-style-type: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: $background;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.5s;
+
+  @include up-medium {
+    opacity: 1;
+    display: flex;
+    transform: translateY(0);
+    background: transparent;
+    width: auto;
+    height: auto;
+    flex-direction: row;
+    position: static;
+    justify-content: flex-end;
+  }
+}
+
+.Open {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.Item {
+  a {
+    padding: 0.35rem 0.5rem;
+    font-size: 1.25rem;
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @include up-medium {
+      display: inline-block;
+      font-size: 0.85rem;
+      padding: 0.35rem 1rem;
+
+      &:hover {
+        background: $primary;
+        color: $white;
+        border-radius: 15px;
+      }
+    }
+  }
+}

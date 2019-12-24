@@ -1,0 +1,25 @@
+$small: 560px;
+$medium: 768px;
+$large: 960px;
+
+@mixin up-small {
+  @media only screen and (min-width: $small) {
+    @content;
+  }
+}
+
+@mixin up-medium {
+  @media only screen and (min-width: $medium) {
+    @content;
+  }
+}
+
+@mixin up-large {
+  @media only screen and (min-width: $large) {
+    @content;
+  }
+}
+
+@mixin shadow {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}

@@ -1,0 +1,62 @@
+@import '../mixins.scss';
+
+.Masnory {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+
+  @include up-small {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include up-medium {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include up-large {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.Item {
+  min-height: 200px;
+  background: lightgray;
+  border-radius: 10px;
+
+  @include up-medium {
+    &:first-child {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    &:nth-child(2n) {
+      grid-column: span 2;
+    }
+
+    &:nth-child(3n) {
+      grid-column: span 1;
+    }
+
+    &:nth-child(4n) {
+      grid-column: span 1;
+    }
+
+    &:nth-child(12n) {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    &:nth-child(13n) {
+      grid-column: span 2;
+    }
+
+    &:nth-child(14n) {
+      grid-column: span 1;
+    }
+
+    &:nth-child(15n) {
+      grid-column: span 1;
+    }
+  }
+}

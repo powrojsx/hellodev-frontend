@@ -1,0 +1,112 @@
+@import '../colors.scss';
+@import '../mixins.scss';
+
+.Newsletter {
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 1rem;
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1rem;
+  border-radius: 50%;
+  background: $primary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  svg {
+    width: 1.75rem;
+  }
+
+  @include shadow;
+
+  &::after {
+    content: 'Hej, dopisz się do newslettera 😊';
+    width: 100px;
+    font-size: 0.75rem;
+    position: absolute;
+    left: 4.5rem;
+    padding: 0.3rem 0.5rem;
+    background: $white;
+    border-radius: 5px;
+
+    @include shadow;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0.5s;
+  }
+
+  &.Scrolled {
+    &::after {
+      opacity: 1;
+      visibility: visible;
+      animation: bounce 1s;
+      animation-iteration-count: 1;
+    }
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+
+  15% {
+    transform: scale(0.85);
+  }
+
+  40% {
+    transform: scale(1.2);
+  }
+
+  55% {
+    transform: scale(0.9);
+  }
+
+  70% {
+    transform: scale(0.8);
+  }
+
+  80% {
+    transform: scale(1.1);
+  }
+
+  95% {
+    transform: scale(1);
+  }
+}
+
+.Modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  background: $white;
+  padding: 2rem 2rem;
+  border-radius: 10px;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.Heading {
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: $primary;
+}
+
+.Paragraph {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
