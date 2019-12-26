@@ -1,9 +1,7 @@
 import React from 'react';
 import css from './FrameHeader.scss';
-import Link from 'next/link';
 import { useScrollYPosition } from 'react-use-scroll-position';
 import classNames from 'classnames';
-import { Star } from './Star/Star';
 import { Vote } from '../../Vote/Vote';
 
 export const FrameHeader = () => {
