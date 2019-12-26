@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #ecf0f1;
+  font-family: 'Open Sans', sans-serif;
+  color: #4c5059;
+  line-height: 1.3;
+}
+
+.Frame {
+  margin-top: 65px;
+  width: 100%;
+  height: calc(100vh - 65px);
+  border: none;
+}

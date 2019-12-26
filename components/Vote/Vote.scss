@@ -1,0 +1,53 @@
+@import '../colors.scss';
+@import '../mixins.scss';
+
+.Container {
+  display: flex;
+  align-items: center;
+
+  border-radius: 5px;
+  font-size: 0.9rem;
+  padding: 0.3rem 1rem;
+}
+
+.List {
+  list-style-type: none;
+  margin-left: 0.5rem;
+}
+
+.Item {
+  display: inline-block;
+}
+
+.VoteButtonUp,
+.VoteButtonDown {
+  cursor: pointer;
+  display: inline-flex;
+  @include shadow;
+  margin-right: 0.5rem;
+  padding: 0.3rem;
+  color: green;
+  background: $white;
+  border-radius: 5px;
+  align-items: center;
+
+  span {
+    margin-right: 0.3rem;
+  }
+}
+
+.VoteButtonUp {
+  &:hover {
+    background: green;
+    color: $white;
+  }
+}
+
+.VoteButtonDown {
+  color: red;
+
+  &:hover {
+    background: red;
+    color: $white;
+  }
+}

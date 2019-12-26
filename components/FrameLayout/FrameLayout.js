@@ -2,12 +2,11 @@ import React from 'react';
 import Head from 'next/head';
 import { Container } from '../Container/Container';
 
-import './Layout.scss';
+import './FrameLayout.scss';
+import css from './FrameLayout.scss';
+import { FrameHeader } from './FrameHeader/FrameHeader';
 
-import { Header } from '../Header/Header';
-import { Newsletter } from '../Newsletter/Newsletter';
-
-export const Layout = ({ title, children }) => {
+export const FrameLayout = ({ title, children }) => {
   return (
     <>
       <Head>
@@ -26,9 +25,7 @@ export const Layout = ({ title, children }) => {
           href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'
         />
       </Head>
-      <Header />
-      <Container>{children}</Container>
-      <Newsletter />
+      {children}
     </>
   );
 };

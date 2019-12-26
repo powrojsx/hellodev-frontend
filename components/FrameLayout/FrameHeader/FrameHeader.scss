@@ -1,0 +1,47 @@
+@import '../../colors.scss';
+
+.Header {
+  width: 100%;
+  transition: 0.5s;
+  background: $primary;
+  color: $white !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+
+  .Logo {
+    font-size: 1rem;
+    font-family: 'Pacifico', cursive;
+    color: $primary;
+
+    a {
+      text-decoration: none;
+      color: $white !important;
+    }
+  }
+
+  .Container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.AddToFavouritesContainer {
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.GoBackButton {
+  border: none;
+  background: none;
+  color: $white;
+  font-size: 0.85rem;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+}

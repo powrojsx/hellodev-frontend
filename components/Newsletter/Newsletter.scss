@@ -19,8 +19,6 @@
     width: 1.75rem;
   }
 
-  @include shadow;
-
   &::after {
     content: 'Hej, dopisz się do newslettera 😊';
     width: 100px;
@@ -87,6 +85,8 @@
   background: $white;
   padding: 2rem 2rem;
   border-radius: 10px;
+
+  @include shadow;
 }
 
 .Overlay {
