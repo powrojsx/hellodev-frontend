@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import css from './Newsletter.scss';
 import classNames from 'classnames';
 import { useScrollYPosition } from 'react-use-scroll-position';
@@ -10,18 +11,18 @@ import { Button } from '../Buttons/Buttons';
 
 import Lottie from 'react-lottie';
 import animation from '../../assets/email.json';
+import {
+  showNewsletterModal,
+  hideNewsletterModal,
+} from '../../redux/actions/newsletter';
 
-export const Newsletter = () => {
-  const [isOpen, toggleModal] = useState(false);
+export const _Newsletter = ({ isOpen, openModal, closeModal }) => {
   const scrollY = useScrollYPosition();
 
   const newsletterClasses = classNames({
     [css.Newsletter]: true,
     [css.Scrolled]: scrollY > 100,
   });
-
-  const openModal = () => toggleModal(true);
-  const closeModal = () => toggleModal(false);
 
   const formClasses = classNames({
     [form.Form]: true,
@@ -97,3 +98,17 @@ export const Newsletter = () => {
     </>
   );
 };
+
+const mapStateToProps = (state) => ({
+  isOpen: state.newsletter.isOpen,
+});
+
+const mapDispatchToProps = {
+  openModal: showNewsletterModal,
+  closeModal: hideNewsletterModal,
+};
+
+export const Newsletter = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(_Newsletter);
