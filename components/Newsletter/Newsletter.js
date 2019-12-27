@@ -8,6 +8,9 @@ import form from '../Form.scss';
 import helpers from '../Helpers.scss';
 import { Button } from '../Buttons/Buttons';
 
+import Lottie from 'react-lottie';
+import animation from '../../assets/email.json';
+
 export const Newsletter = () => {
   const [isOpen, toggleModal] = useState(false);
   const scrollY = useScrollYPosition();
@@ -61,13 +64,22 @@ export const Newsletter = () => {
         overlayClassName={css.Overlay}
       >
         <h2 className={css.Heading}>Newsletter</h2>
+        <Lottie
+          options={{
+            loop: true,
+            autoplay: true,
+            animationData: animation,
+          }}
+          width={150}
+          height={150}
+        />
         <p className={css.Paragraph}>
           Dołącz do nas już dziś, aby otrzymywać wiadomości z najlepiej
           ocenianymi postami!
         </p>
         <form className={formClasses}>
           <div className={form.FormGroup}>
-            <label for='email' className={helpers.VisuallyHidden}>
+            <label htmlFor='email' className={helpers.VisuallyHidden}>
               E-mail
             </label>
             <input
@@ -76,7 +88,7 @@ export const Newsletter = () => {
               className={form.Text}
               placeholder='Podaj swój email'
             />
-            <Button primary type='submit'>
+            <Button primary={true} type='submit'>
               Zapisz mnie!
             </Button>
           </div>

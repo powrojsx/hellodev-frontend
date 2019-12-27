@@ -11,10 +11,6 @@ export const Navigation = () => {
       path: '/',
     },
     {
-      name: 'Discord',
-      path: '/discord',
-    },
-    {
       name: 'Najlepiej oceniane',
       path: '/best-ratings',
     },
@@ -44,6 +40,15 @@ export const Navigation = () => {
               </Link>
             </li>
           ))}
+          <li className={css.Item}>
+            <a
+              href='https://discord.gg/KRADmZN'
+              rel='noopener norefferer'
+              target='_blank'
+            >
+              Discord
+            </a>
+          </li>
         </ul>
       </div>
     </nav>

@@ -1,6 +1,7 @@
 $small: 560px;
 $medium: 768px;
 $large: 960px;
+$xlarge: 1160px;
 
 @mixin up-small {
   @media only screen and (min-width: $small) {
@@ -16,6 +17,12 @@ $large: 960px;
 
 @mixin up-large {
   @media only screen and (min-width: $large) {
+    @content;
+  }
+}
+
+@mixin up-xlarge {
+  @media only screen and (min-width: $xlarge) {
     @content;
   }
 }
