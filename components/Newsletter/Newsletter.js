@@ -14,9 +14,16 @@ import animation from '../../assets/email.json';
 import {
   showNewsletterModal,
   hideNewsletterModal,
+  saveToNewsletter,
 } from '../../redux/actions/newsletter';
 
-export const _Newsletter = ({ isOpen, openModal, closeModal }) => {
+export const _Newsletter = ({
+  isOpen,
+  openModal,
+  closeModal,
+  saveToNewsletterAction,
+}) => {
+  const [emailValue, setEmailValue] = useState('');
   const scrollY = useScrollYPosition();
 
   const newsletterClasses = classNames({
@@ -28,6 +35,11 @@ export const _Newsletter = ({ isOpen, openModal, closeModal }) => {
     [form.Form]: true,
     [form.Center]: true,
   });
+
+  const submitNewsletterForm = (event) => {
+    event.preventDefault();
+    saveToNewsletterAction(emailValue);
+  };
 
   return (
     <>
@@ -78,7 +90,7 @@ export const _Newsletter = ({ isOpen, openModal, closeModal }) => {
           Dołącz do nas już dziś, aby otrzymywać wiadomości z najlepiej
           ocenianymi postami!
         </p>
-        <form className={formClasses}>
+        <form className={formClasses} onSubmit={submitNewsletterForm}>
           <div className={form.FormGroup}>
             <label htmlFor='email' className={helpers.VisuallyHidden}>
               E-mail
@@ -88,6 +100,10 @@ export const _Newsletter = ({ isOpen, openModal, closeModal }) => {
               required
               className={form.Text}
               placeholder='Podaj swój email'
+              value={emailValue}
+              onChange={(event) => {
+                setEmailValue(event.target.value);
+              }}
             />
             <Button primary={true} type='submit'>
               Zapisz mnie!
@@ -106,6 +122,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   openModal: showNewsletterModal,
   closeModal: hideNewsletterModal,
+  saveToNewsletterAction: saveToNewsletter,
 };
 
 export const Newsletter = connect(

@@ -12,8 +12,21 @@ body {
 }
 
 .Frame {
-  margin-top: 65px;
   width: 100%;
-  height: calc(100vh - 65px);
+  height: 100%;
   border: none;
+}
+
+.Container {
+  margin-top: 65px;
+  height: calc(100vh - 65px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.ErrorMessage {
+  margin-top: 1rem;
+  font-weight: bold;
 }
