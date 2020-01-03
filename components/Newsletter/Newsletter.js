@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import css from './Newsletter.scss';
 import classNames from 'classnames';
 import { useScrollYPosition } from 'react-use-scroll-position';
@@ -10,9 +11,19 @@ import { Button } from '../Buttons/Buttons';
 
 import Lottie from 'react-lottie';
 import animation from '../../assets/email.json';
+import {
+  showNewsletterModal,
+  hideNewsletterModal,
+  saveToNewsletter,
+} from '../../redux/actions/newsletter';
 
-export const Newsletter = () => {
-  const [isOpen, toggleModal] = useState(false);
+export const _Newsletter = ({
+  isOpen,
+  openModal,
+  closeModal,
+  saveToNewsletterAction,
+}) => {
+  const [emailValue, setEmailValue] = useState('');
   const scrollY = useScrollYPosition();
 
   const newsletterClasses = classNames({
@@ -20,13 +31,15 @@ export const Newsletter = () => {
     [css.Scrolled]: scrollY > 100,
   });
 
-  const openModal = () => toggleModal(true);
-  const closeModal = () => toggleModal(false);
-
   const formClasses = classNames({
     [form.Form]: true,
     [form.Center]: true,
   });
+
+  const submitNewsletterForm = (event) => {
+    event.preventDefault();
+    saveToNewsletterAction(emailValue);
+  };
 
   return (
     <>
@@ -77,7 +90,7 @@ export const Newsletter = () => {
           Dołącz do nas już dziś, aby otrzymywać wiadomości z najlepiej
           ocenianymi postami!
         </p>
-        <form className={formClasses}>
+        <form className={formClasses} onSubmit={submitNewsletterForm}>
           <div className={form.FormGroup}>
             <label htmlFor='email' className={helpers.VisuallyHidden}>
               E-mail
@@ -87,6 +100,10 @@ export const Newsletter = () => {
               required
               className={form.Text}
               placeholder='Podaj swój email'
+              value={emailValue}
+              onChange={(event) => {
+                setEmailValue(event.target.value);
+              }}
             />
             <Button primary={true} type='submit'>
               Zapisz mnie!
@@ -97,3 +114,18 @@ export const Newsletter = () => {
     </>
   );
 };
+
+const mapStateToProps = (state) => ({
+  isOpen: state.newsletter.isOpen,
+});
+
+const mapDispatchToProps = {
+  openModal: showNewsletterModal,
+  closeModal: hideNewsletterModal,
+  saveToNewsletterAction: saveToNewsletter,
+};
+
+export const Newsletter = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(_Newsletter);

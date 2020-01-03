@@ -1,5 +1,10 @@
 import { combineReducers } from 'redux';
+import { newsletterReducer } from './newsletter';
+import { mainFeedReducer } from './mainFeed';
+import { singleFeedReducer } from './singleFeed';
 
 export const rootReducer = combineReducers({
-  test: (state = { dupa: 'hehe' }, action) => state,
+  newsletter: newsletterReducer,
+  mainFeed: mainFeedReducer,
+  singleFeed: singleFeedReducer,
 });
