@@ -27,20 +27,13 @@
   background-size: cover;
   height: 100%;
   overflow: hidden;
-  hyphens: auto;
-
-  .Description {
-    display: none;
-  }
+  text-overflow: ellipsis;
+  display: flex;
 
   @include up-medium {
     &:first-child {
       grid-column: span 2;
       grid-row: span 2;
-
-      .Description {
-        display: none;
-      }
     }
 
     &:nth-child(2n) {
@@ -58,10 +51,6 @@
     &:nth-child(12n) {
       grid-column: span 2;
       grid-row: span 2;
-
-      .Description {
-        display: none;
-      }
     }
 
     &:nth-child(13n) {
@@ -85,7 +74,7 @@
 }
 
 .Title {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
 }
 .OverlayGradient {
   background: linear-gradient(
@@ -101,13 +90,39 @@
     text-shadow: 1px 1px #333333;
     color: $white;
   }
+
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
 }
 
 .Link {
   text-decoration: none;
   color: inherit;
+  overflow: hidden;
 }
 
 .Author {
   margin-bottom: 0.5rem;
+}
+
+.Description {
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-end;
+
+  .Youtube {
+    display: block;
+    border-radius: 5px;
+    background: #ff3400;
+    padding: 5px 10px;
+    text-align: center;
+
+    @include shadow;
+
+    span {
+      font-size: 1rem;
+      line-height: 1;
+    }
+  }
 }

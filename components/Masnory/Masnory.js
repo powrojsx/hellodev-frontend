@@ -68,6 +68,11 @@ export const Masnory = ({ items }) => {
                   <div className={overlayClasses}>
                     <p className={css.Author}>{item.author}</p>
                     <p className={css.Title}>{item.title}</p>
+                    <div className={css.Description}>
+                      <div className={css.Youtube}>
+                        <span className='fa fa-play'></span>
+                      </div>
+                    </div>
                   </div>
                 </a>
               </Link>
