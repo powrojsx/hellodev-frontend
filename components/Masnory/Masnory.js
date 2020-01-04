@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import slugify from 'slugify';
 import hexToRgba from 'hex-rgba';
+import { getContrast } from '../../utils/colorContrast';
 
 export const Masnory = ({ items }) => {
   return (
@@ -33,8 +34,22 @@ export const Masnory = ({ items }) => {
               >
                 <a className={css.Link}>
                   <div className={overlayClasses}>
-                    <p className={css.Author}>{item.author}</p>
-                    <p className={css.Title}>{item.title}</p>
+                    <p
+                      className={css.Author}
+                      style={{
+                        color: getContrast(item.source.color_1),
+                      }}
+                    >
+                      {item.author}
+                    </p>
+                    <p
+                      className={css.Title}
+                      style={{
+                        color: getContrast(item.source.color_2),
+                      }}
+                    >
+                      {item.title}
+                    </p>
                   </div>
                 </a>
               </Link>
