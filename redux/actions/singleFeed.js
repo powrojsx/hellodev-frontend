@@ -11,11 +11,10 @@ export const fetchSingleFeed = (id) => ({
   },
 });
 
-export const fetchSingleFeedSucces = (link, title) => ({
+export const fetchSingleFeedSuccess = (item) => ({
   type: FETCH_SINGLE_FEED_SUCCESS,
   payload: {
-    link,
-    title,
+    item,
   },
 });
 

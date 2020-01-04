@@ -2,7 +2,7 @@ import { call, takeLatest, put } from 'redux-saga/effects';
 import { client } from '../../config/gqlClient';
 import { gql } from 'apollo-boost';
 import { FETCH_SINGLE_FEED_REQUEST } from '../types/singleFeed';
-import { fetchSingleFeedSucces } from '../actions/singleFeed';
+import { fetchSingleFeedSuccess } from '../actions/singleFeed';
 
 function* fetchFeed(action) {
   try {
@@ -15,6 +15,7 @@ function* fetchFeed(action) {
             id
             link
             title
+            alternate_link
           }
         }
       `,
@@ -24,12 +25,7 @@ function* fetchFeed(action) {
       throw new Error('API Error');
     }
 
-    yield put(
-      fetchSingleFeedSucces(
-        res.data.RssSourceItem.link,
-        res.data.RssSourceItem.title
-      )
-    );
+    yield put(fetchSingleFeedSuccess(res.data.RssSourceItem));
   } catch (error) {
     throw new Error();
   }

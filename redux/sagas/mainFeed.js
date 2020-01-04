@@ -18,6 +18,7 @@ function* fetchFeeds(action) {
               link
               description
               source {
+                type
                 name
                 favicon_url
                 color_1

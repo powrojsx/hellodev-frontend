@@ -68,7 +68,7 @@ const post = ({ fetchSingleFeedAction, feed }) => {
         id={slugify(feed.item.title, { lower: true })}
         title={feed.item.title}
         className={css.Frame}
-        src={feed.item.link}
+        src={feed.item.alternate_link}
       ></iframe>
     </Base>
   );

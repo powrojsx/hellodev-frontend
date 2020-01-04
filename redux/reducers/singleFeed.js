@@ -6,8 +6,11 @@ import {
 
 const INITIAL_STATE = {
   isLoading: false,
-  link: '',
-  title: '',
+  item: {
+    title: '',
+    link: '',
+    alternate_link: '',
+  },
   error: '',
 };
 
@@ -23,8 +26,7 @@ export const singleFeedReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         isLoading: false,
-        link: action.payload.link,
-        title: action.payload.title,
+        item: action.payload.item,
       };
 
     case FETCH_SINGLE_FEED_FAILURE:
